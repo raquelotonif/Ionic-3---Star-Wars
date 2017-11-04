@@ -6,24 +6,30 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { PersonagemPage } from '../pages/personagem/personagem';
+import { CoreModule, StarWarsService } from '../core/core.module';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    PersonagemPage
   ],
   imports: [
     BrowserModule,
+    CoreModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    PersonagemPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    StarWarsService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
