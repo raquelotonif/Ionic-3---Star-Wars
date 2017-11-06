@@ -9,7 +9,7 @@
 <ion-content padding>
  <ion-card *ngFor="let personagem of personagens"
            (click)="pushPage(personagem)">
-   <p>{{personagem.name}}</p>
+   <p>{{personagem.name}} - {{personagem.specie}}</p>
    <p>{{personagem.birth_year}}</p>
  </ion-card>
 </ion-content>

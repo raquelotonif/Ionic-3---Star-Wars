@@ -8,7 +8,7 @@ import {StarWarsService} from "../../core/star-wars.service";
   templateUrl: 'home.html'
 })
 export class HomePage {
-  personagens: any[];
+  personagens: any;
 
   constructor(public navCtrl: NavController, public _starWarsService: StarWarsService) {
   }
@@ -19,16 +19,13 @@ export class HomePage {
 
   loadPersonagens(): any {
     this._starWarsService.getAllPersonagens()
-      .subscribe(personagens => this.personagens = personagens['results'])
-  }
-
-  getPersonagemSpecies(personagem, apiUrl): any {
-    this._starWarsService.getPersonagemSpecies(apiUrl)
-      .subscribe(personagemSpecies => personagem['species'] = personagemSpecies)
+      .subscribe(personagens => {
+        this.personagens = personagens;
+        console.log(this.personagens);
+      });
   }
 
   pushPage(personagem){
-    console.log(personagem);
     this.navCtrl.push(PersonagemPage, {personagem: personagem});
   }
 }
